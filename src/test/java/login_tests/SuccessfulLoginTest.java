@@ -2,7 +2,9 @@ package login_tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Driver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -26,12 +28,19 @@ public class SuccessfulLoginTest {
         homePage = new HomePage(driver);
     }
 
-    @Test
-    public void successfulLogin() {
+    @DataProvider(name = "Successful Test Data List")
+    public Object[][] createData(){
+        return new Object [][]{
+                {validUsernameTestData, validUserPasswordTestData},
+        };
+    }
+
+    @Test(dataProvider = "Successful Test Data List")
+    public void successfulLogin(String userName, String userPass) {
         loginPage.openLoginPage(loginURL);
-        loginPage.enterUserName(validUsernameTestData);
-        loginPage.enterUserPass(validUserPasswordTestData);
+        loginPage.enterUserName(userName);
+        loginPage.enterUserPass(userPass);
         loginPage.clickLoginButton();
-        homePage.isUserProfileIconShown();
+        Assert.assertTrue(homePage.isDashboardShown());;
     }
 }
