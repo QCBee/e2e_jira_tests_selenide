@@ -3,7 +3,9 @@
     <parameter name="browserName" value="Chrome"/>
     <test name="LoginTests">
         <classes>
-            <class name="login_tests.SuccessfulLoginTest"/>
+<!--            <class name="login_tests.SuccessfulLoginTest"/>-->
+<!--            <class name="login_tests.UnsuccessfulLoginTest"/>-->
+            <class name="login_tests.ForgotLoginTest"/>
         </classes>
     </test>
 
