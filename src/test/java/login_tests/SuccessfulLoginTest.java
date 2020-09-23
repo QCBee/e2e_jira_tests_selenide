@@ -41,6 +41,6 @@ public class SuccessfulLoginTest {
         loginPage.enterUserName(userName);
         loginPage.enterUserPass(userPass);
         loginPage.clickLoginButton();
-        Assert.assertTrue(homePage.isDashboardShown());;
+        Assert.assertTrue(homePage.isDashboardShown());
     }
 }

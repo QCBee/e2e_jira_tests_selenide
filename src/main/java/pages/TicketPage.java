@@ -48,6 +48,16 @@ public class TicketPage {
     private SelenideElement browseLinkOnAttachmentArea = $(byXpath("//*[@type='button'][contains(text(),' browse')]"));
     private SelenideElement moreButtonAttachmentSection = $(byXpath("//*[@title = 'Options']"));
 
+    //Activity section
+    private SelenideElement activityLabel = $(byId("activitymodule_heading"));
+    private SelenideElement allTabNotSelected = $(byXpath("//*[@id='all-tabpanel'][contains(text(),'All')]"));
+    private SelenideElement commentTab = $(byId("comment-tabpanel"));
+    private SelenideElement addCommentFooterButton = $(byId("footer-comment-button"));
+    private SelenideElement workLogTabNotSelected = $(byXpath("//*[@id='worklog-tabpanel'][contains(text(),'Work Log')]"));
+    private SelenideElement historyTabNotSelected = $(byXpath("//*[@id='changehistory-tabpanel'][contains(text(),'History')]"));
+    private SelenideElement activityTabNotSelected = $(byXpath("//*[@id='activity-stream-issue-tab'][contains(text(),'Activity')]"));
+    private SelenideElement jigitTabNotSelected = $(byXpath("//*[@id ='jigit-tab-panel'][contains(text(),'Jigit')]"));
+
     public void openTicletPage(String pageUrl){
         open(pageUrl);
     }
@@ -92,7 +102,85 @@ public class TicketPage {
         return exportButtonOnCommandBar.shouldBe(Condition.visible).isDisplayed();
     }
 
+    public boolean isDetailsLabelShown(){
+        return detailsLabel.shouldBe(Condition.visible).isDisplayed();
+    }
 
+    public boolean isTypeIssueFieldShown(){
+        return typeIssueField.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isPriorityIssueFieldShown(){
+        return priorityIssueField.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isLabelsIssueFieldShown(){
+        return labelsIssueField.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isStatusIssueFieldShown(){
+        return statusIssueField.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isResolutionIssueFieldShown(){
+        return resolutionIssueField.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isDescriptionAreaShown(){
+        return descriptionArea.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isDescriptionLabelShown(){
+        return descriptionLabel.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAttachmentLabelShown(){
+        return attachmentLabel.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isMoreButtonForAttachmentSectionShown(){
+        return moreButtonAttachmentSection.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAttachmentAreaShown(){
+        return attachmentArea.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isBrowseButtonShownOnAttachmentArea(){
+        return browseLinkOnAttachmentArea.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isActivitySectionShown(){
+        return activityLabel.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAllTabNotSelectedShown(){
+        return allTabNotSelected.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAddCommentFooterButtonEnabled(){
+        return addCommentFooterButton.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isWorkLogTabNotSelectedShown(){
+        return workLogTabNotSelected.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isHistoryTabNotSelectedShown(){
+        return historyTabNotSelected.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isActivityTabNotSelectedShown(){
+        return activityTabNotSelected.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isJigitTabNotSelectedShown(){
+        return jigitTabNotSelected.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isCommentTabSelected(){
+        return commentTab.shouldBe(Condition.visible).isDisplayed();
+    }
 
 
 
