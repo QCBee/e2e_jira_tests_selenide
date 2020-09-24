@@ -1,23 +1,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="RegressionSuite" parallel="classes" thread-count="1">
     <parameter name="browserName" value="Chrome"/>
-<!--    <test name="LoginTests">-->
-<!--        <classes>-->
-<!--            <class name="login_tests.SuccessfulLoginTest"/>-->
-<!--            <class name="login_tests.UnsuccessfulLoginTest"/>-->
-<!--            <class name="login_tests.ForgotLoginTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="ViewTicketTest">-->
-<!--        <classes>-->
-<!--            <class name="view_ticket_tests.ViewTicketTest"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="LoginTests">
+        <classes>
+            <class name="login_tests.SuccessfulLoginTest"/>
+            <class name="login_tests.UnsuccessfulLoginTest"/>
+            <class name="login_tests.ForgotLoginTest"/>
+        </classes>
+    </test>
+    <test name="ViewTicketTest">
+        <classes>
+            <class name="view_ticket_tests.ViewTicketTest"></class>
+        </classes>
+    </test>
     <test name="CreateNewTicket">
         <classes>
             <class name="create_issue_tests.SuccessfulCreateIssueTest"></class>
         </classes>
     </test>
-
-
+    <test name="AddComment">
+        <classes>
+            <class name="add_comment_ticket_tests.SuccessfulAddCommentTest"></class>
+        </classes>
+    </test>
 </suite>

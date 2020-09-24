@@ -41,7 +41,7 @@ public class ViewTicketTest {
     @Test
     public void viewTicketTest(){
         //Open ticket by url
-        ticketPage.openTicletPage(ticketUrl);
+        ticketPage.openTicketPage(ticketUrl);
         Assert.assertTrue(ticketPage.isProjectAvatarIconShown());
 
         //Verify all available buttons on Command Bar Section

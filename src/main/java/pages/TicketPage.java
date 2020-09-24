@@ -58,7 +58,19 @@ public class TicketPage {
     private SelenideElement activityTabNotSelected = $(byXpath("//*[@id='activity-stream-issue-tab'][contains(text(),'Activity')]"));
     private SelenideElement jigitTabNotSelected = $(byXpath("//*[@id ='jigit-tab-panel'][contains(text(),'Jigit')]"));
 
-    public void openTicletPage(String pageUrl){
+    //Locators for comment section
+    private SelenideElement commentInput = $(byId("comment"));
+    private SelenideElement addCommentButtonEnabled = $(byId("issue-comment-add-submit"));
+    private SelenideElement addCommentButtonDisabled = $(byXpath("//*[@id='issue-comment-add-submit' and @disabled = 'disabled']"));
+    private SelenideElement cancelAddCommentButton = $(byId("issue-comment-add-cancel"));
+    private SelenideElement logsIssueArea = $(byId("issue_actions_container"));
+    private SelenideElement addedCommentValue = $(byXpath("//*[contains(text(),'I am a test comment')]"));
+    private SelenideElement textMode = $(byXpath("//*[@data-mode='source']//child::a"));
+    private SelenideElement anyNotAddedCommentsArea = $(byXpath("//*[contains(text(),'There are no comments yet on this issue.')]"));
+    private SelenideElement deleteIcon = $(byXpath("//*[@title='Delete']"));
+    private SelenideElement updateIssueNotification = $(byXpath("//*[contains(text(),'WEBINAR-12303 has been updated.')]"));
+
+    public void openTicketPage(String pageUrl){
         open(pageUrl);
     }
 
@@ -180,6 +192,78 @@ public class TicketPage {
 
     public boolean isCommentTabSelected(){
         return commentTab.shouldBe(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAnyCommentNotAdded(){
+        return anyNotAddedCommentsArea.should(Condition.visible).isDisplayed();
+    }
+
+    public void clickAddCommentFooterButton(){
+        addCommentFooterButton.click();
+    }
+
+    public boolean isAddCommentAreaShown(){
+        return commentInput.should(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAddCommentFooterButtonDisabled(){
+        return addCommentFooterButton.shouldNot(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAddCommentButtonDisabled(){
+        return addCommentButtonDisabled.should(Condition.visible).isDisplayed();
+    }
+
+    public boolean isCancelButtonEnabled(){
+        return cancelAddCommentButton.should(Condition.visible).isDisplayed();
+    }
+
+    public void selectTextModeForComment(){
+        textMode.click();
+    }
+
+    public boolean isTextModeForCommentSelected(){
+        return textMode.should(Condition.enabled).isSelected();
+    }
+
+    public void enterComment(String commentValue){
+        commentInput.setValue(commentValue);
+    }
+
+    public boolean isAddCommentButtonEnabled(){
+        return addCommentButtonEnabled.should(Condition.enabled).isDisplayed();
+    }
+
+    public void clickAddCommentButton(){
+        addCommentButtonEnabled.click();
+    }
+
+    public boolean isLogIssueAreaShown(){
+        return logsIssueArea.should(Condition.visible).isDisplayed();
+    }
+
+    public boolean isAddedCommentShown(){
+        return addedCommentValue.should(Condition.visible).isDisplayed();
+    }
+
+    public void clickDeleteCommentIcon(){
+        deleteIcon.click();
+    }
+
+    public boolean isUpdateIssueNotificationShown(){
+        return updateIssueNotification.should(Condition.visible).isDisplayed();
+    }
+
+    public boolean isDeleteIconShown(){
+        return deleteIcon.should(Condition.visible).isDisplayed();
+    }
+
+    public boolean isUpdateIssueNotificationNotShown(){
+        return updateIssueNotification.shouldNot(Condition.visible).isDisplayed();
+    }
+
+    public void navigateToTicketPage(String ticketUrl){
+        open(ticketUrl);
     }
 
 
