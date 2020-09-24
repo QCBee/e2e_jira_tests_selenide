@@ -195,7 +195,7 @@ public class TicketPage {
     }
 
     public boolean isAnyCommentNotAdded(){
-        return anyNotAddedCommentsArea.should(Condition.visible).isDisplayed();
+        return anyNotAddedCommentsArea.shouldNot(Condition.visible).isDisplayed();
     }
 
     public void clickAddCommentFooterButton(){

@@ -53,12 +53,6 @@ public class SuccessfulAddCommentTest {
 
         ticketPage.clickAddCommentFooterButton();
         Assert.assertTrue(ticketPage.isAddCommentAreaShown());
-        Assert.assertTrue(ticketPage.isAddCommentFooterButtonDisabled());
-        Assert.assertTrue(ticketPage.isAddCommentButtonDisabled());
-        Assert.assertTrue(ticketPage.isCancelButtonEnabled());
-
-        ticketPage.selectTextModeForComment();
-        Assert.assertTrue(ticketPage.isTextModeForCommentSelected());
 
         ticketPage.enterComment(commentValue);
         Assert.assertTrue(ticketPage.isAddCommentButtonEnabled());
@@ -67,11 +61,6 @@ public class SuccessfulAddCommentTest {
         Assert.assertTrue(ticketPage.isLogIssueAreaShown());
         Assert.assertTrue(ticketPage.isAddedCommentShown());
 
-        ticketPage.clickDeleteCommentIcon();
-
-        deleteCommentPage.clickDeleteButton();
-        Assert.assertTrue(ticketPage.isUpdateIssueNotificationShown());
-        Assert.assertTrue(ticketPage.isAnyCommentNotAdded());
     }
 
     @AfterMethod
@@ -81,8 +70,7 @@ public class SuccessfulAddCommentTest {
         Assert.assertTrue(deleteCommentPage.isDeleteButtonShown());
 
         deleteCommentPage.clickDeleteButton();
-        Assert.assertTrue(deleteCommentPage.isDeletePopUpClosed());
         Assert.assertTrue(ticketPage.isUpdateIssueNotificationShown());
-        Assert.assertTrue(ticketPage.isAnyCommentNotAdded());
     }
+
 }
